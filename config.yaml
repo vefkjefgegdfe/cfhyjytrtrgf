@@ -1,0 +1,26 @@
+log:
+  loglevel: info
+dns:
+  servers:
+  - https+local://8.8.8.8/dns-query
+inbounds:
+- port: 8080
+  protocol: trojan
+  settings:
+    clients:
+    - password: "00ac303e-9a9a-4acf-988b-b2deb01f7c43"
+  streamSettings:
+    network: ws
+    wsSettings:
+      path: qwe
+  sniffing:
+    enabled: false
+    destOverride:
+    - http
+    - tls
+    - quic
+outbounds:
+- protocol: freedom
+  tag: direct
+  settings:
+    domainStrategy: UseIPv4
